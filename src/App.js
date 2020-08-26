@@ -14,14 +14,13 @@ function App() {
   // });
 
   useEffect(() => {
-    const analytics = new Analytics("07b3aaa4-f2d0-489a-be46-cf3200d0afce");
+    const analytics = new Analytics("5bf1a145-812c-487e-9b27-14af504bfd27");
     analytics.page({
       userId: "test",
       pageTitle: "HomePage",
       route: "/",
     });
   }, []);
-  
 
   return (
     <Router>
