@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Analytics from "npm-vineet";
 import "./Register.css";
 
 const Register = () => {
+
+  useEffect(() => {
+    const analytics = new Analytics("5bf1a145-812c-487e-9b27-14af504bfd27");
+    analytics.page({
+      userId: "test"
+    });
+  }, []);
+
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+
+
   // Click Event Tracking
-
- 
-
    function handleSubmit(e) {
     e.preventDefault();
 
