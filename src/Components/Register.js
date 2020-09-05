@@ -1,48 +1,40 @@
-import React, { useState,useEffect } from "react";
-import Analytics from "npm-vineet";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 
 const Register = () => {
-
   useEffect(() => {
-    const analytics = new Analytics("5bf1a145-812c-487e-9b27-14af504bfd27");
-    analytics.page({
-      userId: "test"
+    window.analytics.page({
+      userId: "qprma1ds"
     });
   }, []);
-
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-
-
   // Click Event Tracking
-   function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
-  const analytics = new Analytics("07b3aaa4-f2d0-489a-be46-cf3200d0afce");
-
-   let formData = {
+    let formData = {
       name,
       email,
-     };
+    };
 
-  //   // analytics.track({
-  //   //   userId: "qweasdcxz",
-  //   //   event: "Registration Button Clicked",
-  //   //   name: formData.name,
-  //   //   email: formData.email,
-  //   // });
+    window.analytics.track({
+      userId: "qprma1ds",
+      event: "Registration Button Clicked",
+      name: formData.name,
+      email: formData.email,
+    });
 
-    analytics.identify({
-      userId: 'qweasdcxz',
-    traits: {
-         name: formData.name,
+    window.analytics.identify({
+      userId: "qprma1ds",
+      traits: {
+        name: formData.name,
         email: formData.email,
-         plan: 'Enterprise',
-        friends: 42
-      }
+        plan: "Enterprise",
+        friends: 42,
+      },
     });
 
     window.alert(`Name : ${formData.name}, Email: ${formData.email}`);
